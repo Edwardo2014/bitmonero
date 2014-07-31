@@ -150,6 +150,7 @@ network_throttle::network_throttle(const std::string &name, int window_size)
 void network_throttle::save_history_to_graph() {
        std::vector<int> x, y;
        int counter=0;
+    
        for (std::vector<packet_info>::iterator it = this->m_history.begin() ; it !=this->m_history.end(); ++it) {
                x.push_back(counter);
                size_t i=it->m_size;
@@ -164,7 +165,6 @@ void network_throttle::save_history_to_graph() {
        }
        catch (GnuplotException ge) {
       std::cout << "GNU PLOT PROBLEM: " << ge.what() << std::endl;
-			throw ge;
   }
 }
 

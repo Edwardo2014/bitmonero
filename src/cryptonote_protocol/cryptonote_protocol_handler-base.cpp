@@ -130,6 +130,7 @@ void cryptonote_protocol_handler_base::handler_request_blocks_now(size_t &count_
 
 	while (!allowed_now) {
 
+
 		{
 			long int size_limit1=0, size_limit2=0;
 			LOG_PRINT_RED("calculating REQUEST size:", LOG_LEVEL_0);

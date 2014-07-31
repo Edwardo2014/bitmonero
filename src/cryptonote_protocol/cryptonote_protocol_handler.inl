@@ -254,10 +254,11 @@ namespace cryptonote
   template<class t_core>
   double t_cryptonote_protocol_handler<t_core>::get_avg_block_size( size_t count) const {
 
+
 	double average = 0;
 	std::vector<size_t> size_vector;	
 	//m_core.get_backward_blocks_sizes(from_height, size_vector, count);
-    m_core.get_backward_blocks_sizes(m_core.get_current_blockchain_height(), size_vector, count);
+    m_core.get_backward_blocks_sizes(m_core.get_current_blockchain_height() - count, size_vector, count);
 
 	std::vector<size_t>::iterator it;
 	it = size_vector.begin();
