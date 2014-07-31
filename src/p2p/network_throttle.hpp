@@ -113,7 +113,6 @@ class network_throttle_manager {
 		friend class cryptonote::cryptonote_protocol_handler_base; // FRIEND - to directly access global throttle-s. !! REMEMBER TO USE LOCKS!
 		friend class connection_basic; // FRIEND - to directly access global throttle-s. !! REMEMBER TO USE LOCKS!
 		friend class connection_basic_pimpl; // ditto
-
 		static int xxx;
 
 	public: // XXX
@@ -149,7 +148,7 @@ class i_network_throttle {
 		virtual double get_time_seconds() const =0; // a timer
 		virtual double get_current_overheat() const =0;
 		virtual void set_overheat(double lag) =0;
-		virtual void save_history_to_graph() =0;
+		virtual void save_history_to_graph(std::string name) =0;
 
 };
 

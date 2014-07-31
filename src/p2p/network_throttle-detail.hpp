@@ -64,7 +64,7 @@ class network_throttle : public i_network_throttle {
 		network_time_seconds m_last_sample_time; // time of last history[0] - so we know when to rotate the buffer
 		network_time_seconds m_start_time; // when we were created
 		bool m_any_packet_yet; // did we yet got any packet to count
-
+		int counter=0;
 		double m_overheat; // last overheat
 		double m_overheat_time; // time in seconds after epoch
 
@@ -88,7 +88,7 @@ class network_throttle : public i_network_throttle {
 		virtual double get_time_seconds() const ; // a timer
 		virtual void set_overheat(double lag);
 		virtual double get_current_overheat() const;
-		virtual void save_history_to_graph();
+		virtual  void save_history_to_graph(std::string name);
 
 		// time calculations:
 		virtual void calculate_times(size_t packet_size, double &A, double &W, double &D, double &R, bool dbg, double force_window) const; // (see base class for info)
